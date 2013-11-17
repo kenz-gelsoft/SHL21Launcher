@@ -32,19 +32,19 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:paddingTop="@dimen/app_widget_preview_padding_top"
-        android:paddingStart="@dimen/app_widget_preview_padding_left"
-        android:paddingEnd="@dimen/app_widget_preview_padding_right"
+        android:paddingLeft="@dimen/app_widget_preview_padding_left"
+        android:paddingRight="@dimen/app_widget_preview_padding_right"
         android:scaleType="matrix"
         android:background="@drawable/screenpanel" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/app_widget_preview_label_margin_top"
-        android:layout_marginStart="@dimen/app_widget_preview_label_margin_left"
-        android:layout_marginEnd="@dimen/app_widget_preview_label_margin_right"
+        android:layout_marginLeft="@dimen/app_widget_preview_label_margin_left"
+        android:layout_marginRight="@dimen/app_widget_preview_label_margin_right"
         android:orientation="horizontal">
         <!-- The name of the widget. -->
-        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        <TextView
             android:id="@+id/widget_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,19 +56,18 @@
 
             android:textColor="#FFFFFFFF"
             android:textSize="13sp"
-            android:textAlignment="viewStart"
             android:fontFamily="sans-serif-condensed"
             android:shadowRadius="2.0"
             android:shadowColor="#B0000000" />
 
         <!-- The original dimensions of the widget (can't be the same text as above due to different
              style. -->
-        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        <TextView
             android:id="@+id/widget_dims"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
             android:layout_weight="0"
             android:gravity="start"
 

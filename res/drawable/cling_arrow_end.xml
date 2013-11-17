@@ -14,6 +14,5 @@
      limitations under the License.
 -->
 <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-        android:src="@drawable/cling_arrow_right"
-        android:autoMirrored="true">
+        android:src="@drawable/cling_arrow_right">
 </bitmap>
