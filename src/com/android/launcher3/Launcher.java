@@ -709,7 +709,8 @@ public class Launcher extends Activity
         // Reset the startActivity waiting flag
         mWaitingForResult = false;
 
-        if (requestCode == REQUEST_BIND_APPWIDGET) {
+        if (requestCode == REQUEST_BIND_APPWIDGET ||
+            requestCode == REQUEST_PICK_APPWIDGET) {
             int appWidgetId = data != null ?
                     data.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, -1) : -1;
             if (resultCode == RESULT_CANCELED) {
@@ -726,8 +727,7 @@ public class Launcher extends Activity
         }
 
         boolean delayExitSpringLoadedMode = false;
-        boolean isWidgetDrop = (requestCode == REQUEST_PICK_APPWIDGET ||
-                requestCode == REQUEST_CREATE_APPWIDGET);
+        boolean isWidgetDrop = requestCode == REQUEST_CREATE_APPWIDGET;
 
         // We have special handling for widgets
         if (isWidgetDrop) {
@@ -978,6 +978,12 @@ public class Launcher extends Activity
     }
 
     protected void startSettings() {
+        showWorkspace(true);
+        mPendingAddWidgetInfo = null;
+        final int appWidgetId = getAppWidgetHost().allocateAppWidgetId();
+        Intent intent = new Intent(AppWidgetManager.ACTION_APPWIDGET_PICK);
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+        startActivityForResult(intent, REQUEST_PICK_APPWIDGET);
     }
 
     public interface QSBScroller {
@@ -1902,6 +1908,11 @@ public class Launcher extends Activity
 
     void addAppWidgetImpl(final int appWidgetId, ItemInfo info, AppWidgetHostView boundWidget,
             AppWidgetProviderInfo appWidgetInfo) {
+        if (appWidgetInfo == null) {
+            appWidgetInfo = mAppWidgetManager.getAppWidgetInfo(appWidgetId);
+            info.container = LauncherSettings.Favorites.CONTAINER_DESKTOP;
+            info.screenId = mWorkspace.getScreenIdForPageIndex(mWorkspace.getCurrentPage());
+        }
         if (appWidgetInfo.configure != null) {
             mPendingAddWidgetInfo = appWidgetInfo;
 
