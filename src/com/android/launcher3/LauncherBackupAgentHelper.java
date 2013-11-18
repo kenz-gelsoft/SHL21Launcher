@@ -41,6 +41,6 @@ public class LauncherBackupAgentHelper extends BackupAgentHelper {
 
     @Override
     public void onCreate() {
-        addHelper(LauncherBackupHelper.LAUNCHER_PREFIX, new LauncherBackupHelper(this));
+//        addHelper(LauncherBackupHelper.LAUNCHER_PREFIX, new LauncherBackupHelper(this));
     }
 }

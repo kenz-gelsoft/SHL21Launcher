@@ -528,7 +528,7 @@ public class DragController {
         final int slop = ViewConfiguration.get(mLauncher).getScaledWindowTouchSlop();
         final int delay = mDistanceSinceScroll < slop ? RESCROLL_DELAY : SCROLL_DELAY;
         final DragLayer dragLayer = mLauncher.getDragLayer();
-        final boolean isRtl = (dragLayer.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL);
+        final boolean isRtl = false;
         final int forwardDirection = isRtl ? SCROLL_RIGHT : SCROLL_LEFT;
         final int backwardsDirection = isRtl ? SCROLL_LEFT : SCROLL_RIGHT;
 

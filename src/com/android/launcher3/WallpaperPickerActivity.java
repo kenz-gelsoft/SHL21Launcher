@@ -463,20 +463,6 @@ public class WallpaperPickerActivity extends WallpaperCropActivity {
     }
 
     private void initializeScrollForRtl() {
-        final HorizontalScrollView scroll =
-                (HorizontalScrollView) findViewById(R.id.wallpaper_scroll_container);
-
-        if (scroll.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
-            final ViewTreeObserver observer = scroll.getViewTreeObserver();
-            observer.addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
-                public void onGlobalLayout() {
-                    LinearLayout masterWallpaperList =
-                            (LinearLayout) findViewById(R.id.master_wallpaper_list);
-                    scroll.scrollTo(masterWallpaperList.getWidth(), 0);
-                    scroll.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                }
-            });
-        }
     }
 
     public boolean enableRotation() {

@@ -626,7 +626,7 @@ public class Folder extends LinearLayout implements DragSource, View.OnClickList
     }
 
     public boolean isLayoutRtl() {
-        return (getLayoutDirection() == LAYOUT_DIRECTION_RTL);
+        return false;
     }
 
     public void onDragOver(DragObject d) {

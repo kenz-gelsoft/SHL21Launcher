@@ -462,7 +462,7 @@ public abstract class PagedView extends ViewGroup implements ViewGroup.OnHierarc
      * Note: this is a reimplementation of View.isLayoutRtl() since that is currently hidden api.
      */
     public boolean isLayoutRtl() {
-        return (getLayoutDirection() == LAYOUT_DIRECTION_RTL);
+        return false;
     }
 
     /**

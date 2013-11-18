@@ -173,7 +173,7 @@ public class ShortcutAndWidgetContainer extends ViewGroup {
     }
 
     public boolean isLayoutRtl() {
-        return (getLayoutDirection() == LAYOUT_DIRECTION_RTL);
+        return false;
     }
 
     @Override

@@ -387,7 +387,7 @@ public class Launcher extends Activity
         Point realSize = new Point();
         Display display = getWindowManager().getDefaultDisplay();
         display.getCurrentSizeRange(smallestSize, largestSize);
-        display.getRealSize(realSize);
+        display.getSize(realSize);
         DisplayMetrics dm = new DisplayMetrics();
         display.getMetrics(dm);
         // Lazy-initialize the dynamic grid
@@ -1987,10 +1987,7 @@ public class Launcher extends Activity
             Bundle options = info.bindOptions;
 
             boolean success = false;
-            if (options != null) {
-                success = mAppWidgetManager.bindAppWidgetIdIfAllowed(appWidgetId,
-                        info.componentName, options);
-            } else {
+            {
                 success = mAppWidgetManager.bindAppWidgetIdIfAllowed(appWidgetId,
                         info.componentName);
             }

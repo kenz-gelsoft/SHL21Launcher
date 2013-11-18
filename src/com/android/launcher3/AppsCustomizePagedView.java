@@ -546,7 +546,7 @@ public class AppsCustomizePagedView extends PagedViewWithDraggableItems implemen
 
     Bundle getDefaultOptionsForWidget(Launcher launcher, PendingAddWidgetInfo info) {
         Bundle options = null;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) {
             AppWidgetResizeFrame.getWidgetSizeRanges(mLauncher, info.spanX, info.spanY, mTmpRect);
             Rect padding = AppWidgetHostView.getDefaultPaddingForWidget(mLauncher,
                     info.componentName, null);
@@ -584,14 +584,9 @@ public class AppsCustomizePagedView extends PagedViewWithDraggableItems implemen
                 mWidgetLoadingId = mLauncher.getAppWidgetHost().allocateAppWidgetId();
                 // Options will be null for platforms with JB or lower, so this serves as an
                 // SDK level check.
-                if (options == null) {
+                {
                     if (AppWidgetManager.getInstance(mLauncher).bindAppWidgetIdIfAllowed(
                             mWidgetLoadingId, info.componentName)) {
-                        mWidgetCleanupState = WIDGET_BOUND;
-                    }
-                } else {
-                    if (AppWidgetManager.getInstance(mLauncher).bindAppWidgetIdIfAllowed(
-                            mWidgetLoadingId, info.componentName, options)) {
                         mWidgetCleanupState = WIDGET_BOUND;
                     }
                 }

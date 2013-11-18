@@ -71,7 +71,7 @@ public class ButtonDropTarget extends TextView implements DropTarget, DragContro
     }
 
     protected Drawable getCurrentDrawable() {
-        Drawable[] drawables = getCompoundDrawablesRelative();
+        Drawable[] drawables = getCompoundDrawables();
         for (int i = 0; i < drawables.length; ++i) {
             if (drawables[i] != null) {
                 return drawables[i];
@@ -122,7 +122,7 @@ public class ButtonDropTarget extends TextView implements DropTarget, DragContro
     }
 
     private boolean isRtl() {
-        return (getLayoutDirection() == View.LAYOUT_DIRECTION_RTL);
+        return false;
     }
 
     Rect getIconRect(int viewWidth, int viewHeight, int drawableWidth, int drawableHeight) {

@@ -184,9 +184,9 @@ public class DeleteDropTarget extends ButtonDropTarget {
         }
 
         if (useUninstallLabel) {
-            setCompoundDrawablesRelativeWithIntrinsicBounds(mUninstallDrawable, null, null, null);
+            setCompoundDrawablesWithIntrinsicBounds(mUninstallDrawable, null, null, null);
         } else {
-            setCompoundDrawablesRelativeWithIntrinsicBounds(mRemoveDrawable, null, null, null);
+            setCompoundDrawablesWithIntrinsicBounds(mRemoveDrawable, null, null, null);
         }
         mCurrentDrawable = (TransitionDrawable) getCurrentDrawable();
 

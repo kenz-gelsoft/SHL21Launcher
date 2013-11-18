@@ -98,7 +98,9 @@ public class InfoDropTarget extends ButtonDropTarget {
         }
 
         mActive = isVisible;
-        mDrawable.resetTransition();
+        if (mDrawable != null) {
+            mDrawable.resetTransition();
+        }
         setTextColor(mOriginalTextColor);
         ((ViewGroup) getParent()).setVisibility(isVisible ? View.VISIBLE : View.GONE);
     }
@@ -112,7 +114,9 @@ public class InfoDropTarget extends ButtonDropTarget {
     public void onDragEnter(DragObject d) {
         super.onDragEnter(d);
 
-        mDrawable.startTransition(mTransitionDuration);
+        if (mDrawable != null) {
+            mDrawable.startTransition(mTransitionDuration);
+        }
         setTextColor(mHoverColor);
     }
 

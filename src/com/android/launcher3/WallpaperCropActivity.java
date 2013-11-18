@@ -156,9 +156,9 @@ public class WallpaperCropActivity extends Activity {
         int maxDim = Math.max(maxDims.x, maxDims.y);
         int minDim = Math.max(minDims.x, minDims.y);
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.JELLY_BEAN) {
             Point realSize = new Point();
-            windowManager.getDefaultDisplay().getRealSize(realSize);
+            windowManager.getDefaultDisplay().getSize(realSize);
             maxDim = Math.max(realSize.x, realSize.y);
             minDim = Math.min(realSize.x, realSize.y);
         }
@@ -267,7 +267,7 @@ public class WallpaperCropActivity extends Activity {
     protected void cropImageAndSetWallpaper(Uri uri,
             OnBitmapCroppedHandler onBitmapCroppedHandler, final boolean finishActivityWhenDone) {
         // Get the crop
-        boolean ltr = mCropView.getLayoutDirection() == View.LAYOUT_DIRECTION_LTR;
+        boolean ltr = true;
 
         Point minDims = new Point();
         Point maxDims = new Point();
@@ -297,10 +297,10 @@ public class WallpaperCropActivity extends Activity {
             // This is not quite right:
             portraitHeight = Math.max(maxDims.x, maxDims.y);
         }
-        if (android.os.Build.VERSION.SDK_INT >=
-                android.os.Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        if (android.os.Build.VERSION.SDK_INT >
+                android.os.Build.VERSION_CODES.JELLY_BEAN) {
             Point realSize = new Point();
-            d.getRealSize(realSize);
+            d.getSize(realSize);
             portraitHeight = Math.max(realSize.x, realSize.y);
         }
         // Get the crop
