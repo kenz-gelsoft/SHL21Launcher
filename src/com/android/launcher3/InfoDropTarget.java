@@ -124,7 +124,9 @@ public class InfoDropTarget extends ButtonDropTarget {
         super.onDragExit(d);
 
         if (!d.dragComplete) {
-            mDrawable.resetTransition();
+            if (mDrawable != null) {
+                mDrawable.resetTransition();
+            }
             setTextColor(mOriginalTextColor);
         }
     }
